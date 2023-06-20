@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Montserrat', sans-serif;
+    }
+
+body{
+    display:flex;
+    /* align-items:center;
+    justify-content: center;
+    min-height: 100vh; */
+    /* background: #11131e; */
+    background-color:#54c3ef; 
+    color:#fad744;
+    font-family: 'Caveat Brush', cursive;
+}
+
+h1{
+  text-align:center; 
+  box-shadow: 0 0 rgba(0, 0, 0, 0.8);
+}
+
+section.quiz{
+    font-family: 'Source Sans Pro', sans-serif;
+    margin:0 auto;
+    display:flex;
+    justify-content:center;
+    align-items:top;
+    flex-direction:row-reverse;
+}
+
+.quizContainer{
+    max-width:450px; 
+    margin-left:200px; 
+    margin-right:10px;
+    overflow-wrap: break-word; 
+    padding:20px; 
+    border-radius:5px; 
+    background-color:#2b3252; 
+    color:#fad744; 
+    display:inline-block
+  }
+
+  .scoreCard{
+    background-color:white; 
+    color:black; 
+    position:sticky; 
+    top:0;
+  /*   display:inline-block;  */
+    border:1px solid black; 
+  /*   margin-left:5px;  */
+  /*   margin-bottom:500px;  */
+    padding:20px; 
+    height:150px; 
+    width:80px; 
+    border-radius:5px;
+  }
+
+  .quesContainer{
+    font-weight:bold;
+    margin:20px;
+  }
+
+  .option{
+    padding:5px;
+    margin:15px;
+  }
