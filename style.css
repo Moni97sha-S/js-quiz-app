@@ -1,4 +1,5 @@
- @import url("https://use.typekit.net/sul4vwk.css");
+@import url("https://use.typekit.net/sul4vwk.css");
+
 
 * {
     margin:0;
@@ -7,34 +8,35 @@
     }
 
 body{
-    display:flex;
-    /* align-items:center;
-    justify-content: center;
-    min-height: 100vh; */
-    /* background: #11131e; */
     background-color:#54c3ef; 
     color:#fad744;
     font-family: 'Caveat Brush', cursive;
+    /* letter-spacing: 1px; */
 }
 
-h1{
+
+
+.p-1{
+  margin: 2px 0 5px;
+  font-size: 3.5rem;
   text-align:center; 
-  box-shadow: 0 0 rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 2px rgba(3,13,29, 0.8);;
 }
 
 section.quiz{
     font-family: "source-sans-pro", sans-serif;
-font-weight: 400;
-font-style: normal;
+    font-weight: 400;
+    font-style: normal;
     margin:0 auto;
     display:flex;
     justify-content:center;
     align-items:top;
     flex-direction:row-reverse;
+    padding-top:2px;
 }
 
 .quizContainer{
-    max-width:450px; 
+    max-width:500px; 
     margin-left:200px; 
     margin-right:10px;
     overflow-wrap: break-word; 
@@ -45,29 +47,37 @@ font-style: normal;
     display:inline-block
   }
 
+  .quesContainer{
+
+  }
+
   .scoreCard{
     background-color:white; 
     color:black; 
+    font-size: 18px;
     position:sticky; 
     top:0;
-  /*   display:inline-block;  */
-    border:1px solid black; 
-  /*   margin-left:5px;  */
-  /*   margin-bottom:500px;  */
-    padding:20px; 
-    height:150px; 
-    width:80px; 
+    left:0;
+    padding:30px; 
+    height:240px; 
+    width:150px; 
     border-radius:5px;
+  }
+
+  .marks{
+    font-size: 2.5rem;
+    font-weight:bold;
   }
 
   .quesContainer{
     font-weight:bold;
-    margin:20px;
+    font-size: 18px;
+    margin:20px 0;
   }
 
   .option{
-    padding:5px;
-    margin:15px;
-    font-weight: 400;
-    font-style: normal;  
+    font-size: 15px;
+    font-weight:200;
+    padding:5px 0 5px;
+    margin:15px 0 15px;
   }
