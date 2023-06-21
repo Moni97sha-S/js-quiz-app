@@ -1,6 +1,5 @@
 @import url("https://use.typekit.net/sul4vwk.css");
 
-
 * {
     margin:0;
     padding:0;
@@ -9,12 +8,11 @@
 
 body{
     background-color:#54c3ef; 
+    height:100%;
     color:#fad744;
     font-family: 'Caveat Brush', cursive;
     /* letter-spacing: 1px; */
 }
-
-
 
 .p-1{
   margin: 2px 0 5px;
@@ -34,23 +32,36 @@ section.quiz{
     flex-direction:row-reverse;
     padding-top:2px;
 }
-
-.quizContainer{
-    max-width:500px; 
+form{
+  max-width:580px; 
+  max-height:1400px;
     margin-left:200px; 
     margin-right:10px;
-    overflow-wrap: break-word; 
-    padding:20px; 
+  margin-bottom:100px;
+    padding:10px; 
     border-radius:5px; 
     background-color:#2b3252; 
     color:#fad744; 
     display:inline-block
+}
+.quizContainer{
+    width:550px; 
+    margin-right:100px; 
+    overflow-wrap: wrap; 
+    padding:20px; 
+    border-radius:5px; 
+    color:#fad744; 
+    display:block
   }
 
   .quesContainer{
-
+    font-weight:bold;
+    font-size: 18px;
+    margin:20px 0;
   }
-
+p.questions{
+  line-break:break;
+}
   .scoreCard{
     background-color:white; 
     color:black; 
@@ -64,16 +75,34 @@ section.quiz{
     border-radius:5px;
   }
 
-  .marks{
+  .scoreCard .marks{
     font-size: 2.5rem;
     font-weight:bold;
   }
-
-  .quesContainer{
+ .scoreCard .out-of-marks{
+    font-size: 2.5rem;
     font-weight:bold;
-    font-size: 18px;
-    margin:20px 0;
   }
+form button{
+  width:25%;
+  max-width:100px;
+  display:flex;
+  justify-content:center;
+  border-radius:5px;
+  margin: 50%;
+  transform: translateX(-50%);
+  /*text-align:center; */
+  margin-top:20px;
+  padding:10px;
+  font-size: 1.2rem;
+  font-family: "source-sans-pro", sans-serif;
+  background-color:#fad744 ;
+  border:none;
+  outline:none;
+  color:black;
+  cursor:pointer;
+  transition: .3s ease background-color;
+}
 
   .option{
     font-size: 15px;
@@ -81,3 +110,12 @@ section.quiz{
     padding:5px 0 5px;
     margin:15px 0 15px;
   }
+.option input[type="radio"]:checked + .optLabel{
+  background-color:rgb(0, 238,255);
+}
+.option .optLabel.correct{
+  background-color: green;
+}
+.option .optLabel.incorrect{
+  background-color: red;
+}
