@@ -13,10 +13,16 @@
 
 </head>
 <body>
-    <h1 class="p-1 text-light">The Quiz App</h1> 
+    <h1 class="p-1">The Quiz App</h1> 
     <section class="quiz">
-      <div class=quizContainer></div>
-      <div class="scoreCard">Score: <br /> <br /><span class="marks">0/5</span> </div>
+      <div class="scoreCard">Score: <br /> <br /><span class="marks">0</span><span class="out-of-marks">/5</span> </div>
+      <form id='quiz_form'>
+      <div class=quizContainer>
+        <div class=quesContainer></div>
+      </div>
+        <button type="submit"class="btn btn-primary">Submit</button>
+      </form>
+      
     </section>
     
     <script src="./script.js"></script>
