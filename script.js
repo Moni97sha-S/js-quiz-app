@@ -1,4 +1,5 @@
 
+// console.log("hi");
 const xhttp = new XMLHttpRequest();
 xhttp.open('GET','https://5d76bf96515d1a0014085cf9.mockapi.io/quiz');
 xhttp.send();
@@ -10,92 +11,95 @@ function onReadyStateChange(e){
       const datum = JSON.parse(e.target.responseText);
        // console.log(datum);
       loadUI(datum);
-    //   console.log(secTag);
-    
+      const secQuiz = document.querySelector(".quiz");
+      const form = document.querySelector(".quiz_form");
+      form.append(quizContDiv)
+      secQuiz.append(form);
     }
 }
+
 function loadUI(data){
   data.forEach((val, ind, arr)=>{
-    const secQuiz = document.querySelector(".quiz");
-     const quizContDiv = document.querySelector(".quizContainer");
-    //  const btn = document.createElement('button');
-    //  btn.classList.add("btn");
-    //  btn.classList.add("btn-primary");
-    //  btn.value="Submit";
-    //  btn.type="Submit";
-    //  secQuiz.append(btn);
     
-
+     const quizContDiv = document.querySelector(".quizContainer");
+     // console.log(val.id)
+    
     //Questions
     const quesDiv = document.createElement('div')
     quesDiv.classList.add("quesContainer");
     const p = document.createElement('p');
     p.classList.add("questions")
-    p.innerText = `Q${val.id}. ` + val.question;
+    p.textContent = `Q${val.id}. ${val.question}` ;
     quesDiv.append(p);
-    
     quizContDiv.append(quesDiv);
-    
-    //quesDiv.insertAjacentHTML('afterbegin', `<hr />`)
-  
+ 
     // Options
-    val.options.forEach(option => {
-      const optItem = optionCont(option, ind );
+    val.options.forEach((option, ind) => {
+      const optItem = optionCont(option, ind);
       quesDiv.append(optItem);
+     // $('submit').click(function
+      // console.log(option)
+      // Add id Dynamically
+        let myInput=0, myLabel=0;
+        $(".opts").each(function(){
+          myInput+=1;
+          $(this).attr({
+            id:myInput
+          });
+        });
+        $(".optLabel").each(function(){
+          myLabel+=1;
+          $(this).attr("for", myLabel);
+        });
       
-    //   console.log(quesDiv);
-    //   const ansTextLabel = optItem.querySelector('label');
-    //   const scoreCardDiv = document.querSelector('.scoreCard')
-      
-    //   ansTextLabel.addEventListener('click', () => {
-    //     let mark = 0;
-    //     if(optIndex === val.answer){
-    //       mark+=1;
-    //     }else{
-    //       option == false;
-    //     }
-    //   });
+      let ansTextLabel = document.querySelectorAll('.optLabel');
+      // console.log($('.optLabel')[5];
+      //  let dataCount = 0;
+  
+      for(let i=0;i < ansTextLabel.length; i++){
+        // console.log(ansTextLabel[5])
+        // ansTextLabel[i].setAttribute('onclick', "optionSelected(ansTextLabel)
+        ansTextLabel[i].setAttribute('onclick', optionSelected(ansTextLabel));
+      }
+      var dataCount = 0;
+      function optionSelected(ans){
+        let userAns = ans.textContent;
+        let correctAns = val.answer
+       // console.log(userAns);
+        // console.log(correctAns);
+        // return userAns
+        if(userAns == correctAns) {
+          // console.log('answer is correct');
+          ans.classList.add("correct");
+        }else{
+          // console.log('answer is wrong')
+          ans.classList.add("incorrect");
+        }
+      }
     });
-    
-
     $(quesDiv).append($("<hr />"));
-    // quizcont.append(divOpt);
-    //  
 
-    secQuiz.append(quizContDiv);
-/***********************************************************
-    console.log(val.options.length)
-    indexes= val.options.length*5
-    for(let i=0; i<indexes; i++){
-        $('input').attr('id', `${indexes}`)
-    }
-     */
 
     function optionCont(option, ind){
-    const divOpt = document.createElement("div");
-    divOpt.classList.add("option");
-    divOpt.insertAdjacentHTML('afterbegin', `
-      <label>
-      <input type="radio" name="Choice_${ind}"></input>
-      ${option}
-      </label>
-    `);
-  return divOpt;
-}
- })
-}
-
-// function optionCont(option, ind){
-//     const divOpt = document.createElement("div");
-//     divOpt.classList.add("option");
-//     divOpt.insertAdjacentHTML('afterbegin', `
-//       <label for="radBtns${ind}">
-//       <input type="radio" id="radBtns${ind}" name="Choice_${ind}"></input>
-//       ${option}
-//       </label>
-//     `);
-//   return divOpt;
-// }
+      const divOpt = document.createElement("div");
+      divOpt.classList.add("option");
+      divOpt.insertAdjacentHTML('afterbegin', `
+        <label class="optLabel">
+        <input type="radio" name="check_${val.id}" class="opts"></input>
+        ${option}
+        </label>
+      `);
+      return divOpt;
+   }
+});
+  function scoreCounter(mark){
+        const scoreTotal = document.querySelector('.marks');
+        mark++;
+        scoreTotal.textContent = `${mark}/${data.length}`
+  };
+  return quizContDiv;
+};
+ 
 
 
 
