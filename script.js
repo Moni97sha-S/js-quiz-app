@@ -32,7 +32,17 @@ function loadUI(data){
     p.textContent = `Q${val.id}. ${val.question}` ;
     quesDiv.append(p);
     quizContDiv.append(quesDiv);
- 
+    // console.log(data[0].options[0])
+    /*quesDiv.insertAjacentHTML('afterbegin', `<hr />`) */
+    // console.log(val.options[0])
+  //console.log(data[ind].options[0])
+   /* for(let i=0; i<data[ind].id.length;i++){
+      for(let j=0; j<options[i].length;j++){
+         // console.log(val.options[i]);
+        console.log(data[i].options[j])
+        $("input").val(data[i].options[j])
+      }
+    } */
     // Options
     val.options.forEach((option, ind) => {
       const optItem = optionCont(option, ind);
@@ -65,20 +75,45 @@ function loadUI(data){
       function optionSelected(ans){
         let userAns = ans.textContent;
         let correctAns = val.answer
-       // console.log(userAns);
+        console.log(userAns);
         // console.log(correctAns);
         // return userAns
         if(userAns == correctAns) {
-          // console.log('answer is correct');
-          ans.classList.add("correct");
+          console.log('answer is correct');
+          //ans.classList.add("correct");
         }else{
-          // console.log('answer is wrong')
-          ans.classList.add("incorrect");
+          console.log('answer is wrong')
+          // ans.classList.add("incorrect");
         }
       }
+      // console.log(data[dataCount])
+      
+      // btn.addEventListener('click', () => {})
+      
+    //   console.log(quesDiv);
+    //   
+    //   const scoreCardDiv = document.querSelector('.scoreCard')
+      
+    //   ansTextLabel.addEventListener('click', () => {
+    //     let mark = 0;
+    //     if(optIndex === val.answer){
+    //       mark+=1;
+    //     }else{
+    //       option == false;
+    //     }
+    //   });
     });
-    $(quesDiv).append($("<hr />"));
+    
 
+    $(quesDiv).append($("<hr />"));
+    
+/***********************************************************
+    console.log(val.options.length)
+    indexes= val.options.length*5
+    for(let i=0; i<indexes; i++){
+        $('input').attr('id', `${indexes}`)
+    }
+     */
 
     function optionCont(option, ind){
       const divOpt = document.createElement("div");
@@ -91,7 +126,9 @@ function loadUI(data){
       `);
       return divOpt;
    }
+    
 });
+
   function scoreCounter(mark){
         const scoreTotal = document.querySelector('.marks');
         mark++;
@@ -100,6 +137,7 @@ function loadUI(data){
   return quizContDiv;
 };
  
+
 
 
 
