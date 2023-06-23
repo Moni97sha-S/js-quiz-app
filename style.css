@@ -11,10 +11,9 @@ body{
     height:100%;
     color:#fad744;
     font-family: 'Caveat Brush', cursive;
-    /* letter-spacing: 1px; */
 }
 
-.p-1{
+ h1.p-1{
   margin: 2px 0 5px;
   font-size: 3.5rem;
   text-align:center; 
@@ -42,7 +41,8 @@ form{
     border-radius:5px; 
     background-color:#2b3252; 
     color:#fad744; 
-    display:inline-block
+    display:inline-block;
+  box-shadow: 0 1rem 1rem -0.7rem rgba(0,0,0,0.4);
 }
 .quizContainer{
     width:550px; 
@@ -50,7 +50,6 @@ form{
     overflow-wrap: wrap; 
     padding:20px; 
     border-radius:5px; 
-    color:#fad744; 
     display:block
   }
 
@@ -59,8 +58,10 @@ form{
     font-size: 18px;
     margin:20px 0;
   }
+
 p.questions{
-  line-break:break;
+/*   line-break:break; */
+  margin-top:1rem;
 }
   .scoreCard{
     background-color:white; 
@@ -83,20 +84,24 @@ p.questions{
     font-size: 2.5rem;
     font-weight:bold;
   }
+
 form button{
+  /* To make buttton center */
+  display:block;
+  margin:auto;
+  /* margin: 50%;
+  transform: translateX(-50%); 
+  To make buttton center */
   width:25%;
   max-width:100px;
-  display:flex;
-  justify-content:center;
+  border:none;
   border-radius:5px;
-  margin: 50%;
-  transform: translateX(-50%);
-  /*text-align:center; */
-  margin-top:20px;
+  /* text-align:center; */
+  /* margin-top:20px; */
   padding:10px;
+  margin-bottom:5px;
   font-size: 1.2rem;
   font-family: "source-sans-pro", sans-serif;
-  background-color:#fad744 ;
   border:none;
   outline:none;
   color:black;
@@ -104,18 +109,39 @@ form button{
   transition: .3s ease background-color;
 }
 
-  .option{
+.btn-primary{
+   background-color:#fad744 ;
+}
+
+.btn:hover{
+  background-color:#f1c40f;
+}
+  .options{
     font-size: 15px;
     font-weight:200;
     padding:5px 0 5px;
     margin:15px 0 15px;
   }
-.option input[type="radio"]:checked + .optLabel{
-  background-color:rgb(0, 238,255);
+/* Label */
+/* .options .optLabel{ */
+    /*   display:; */
+    /*   align-items: normal; */
+/* } */
+
+/* input */
+/* .options .opts{
+  
+} */
+
+.optLabel, input{
+  cursor:pointer;
 }
-.option .optLabel.correct{
+/* .options .optLabel,input[type="radio"]:checked {
+ color:rgb(0, 238,255);
+} */
+/* .options .optLabel.correct{
   background-color: green;
 }
-.option .optLabel.incorrect{
+.options .optLabel.incorrect{
   background-color: red;
-}
+} */
